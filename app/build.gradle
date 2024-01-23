@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply {
+    from '../../commons.gradle'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.tokbox.sample.basicvideocapturer"
+        minSdk 26
+        targetSdk 34
+        versionCode extVersionCode
+        versionName extVersionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled extMinifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    namespace 'com.tokbox.sample.basicvideocapturer'
+}
+
+dependencies {
+    // Dependency versions are defined in the ../../commons.gradle file
+    implementation "com.opentok.android:opentok-android-sdk:2.27.0"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "pub.devrel:easypermissions:3.0.0"
+    implementation 'androidx.core:core-ktx:1.13.0-alpha03'
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+}
